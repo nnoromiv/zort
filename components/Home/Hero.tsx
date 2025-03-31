@@ -86,7 +86,7 @@ export function Hero() {
 
                 </div>
 
-                <div className='relative'>
+                <div className='relative h-[100vh]'>
                     <motion.div
                         initial={{
                             opacity: 0,
@@ -106,8 +106,8 @@ export function Hero() {
                             src={PHONES}
                             alt="Landing page preview"
                             className="w-full"
-                            height={2000}
-                            width={2000}
+                            height={3000}
+                            width={3000}
                         />
                     </motion.div>
                     <motion.div

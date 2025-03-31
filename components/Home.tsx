@@ -33,7 +33,7 @@ export default function Home() {
   }, []);
 
 
-  const firstY = useTransform(scrollYProgress, [0, 0.1], [(screenHeight < 769 ? 150 : 0), 0]);
+  const firstY = useTransform(scrollYProgress, [0, 0.1], [(screenHeight < 769 ? 150 : 100), 0]);
   const firstOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
 
   const secondY = useTransform(scrollYProgress, [0.1, 0.2], [(screenHeight < 769 ? 100 : 50), 0]);

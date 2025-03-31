@@ -14,7 +14,7 @@ const Feature: FC<IFeatureTypes> = ({image, icon, title, description, reversed }
             alt='feature'        
         />
 
-        <div className={`text-white w-[700px] px-3 flex flex-col h-full justify-between gap-12 max-[1026px]:gap-4 ${reversed ? 'max-[1026px]:items-end' : 'max-[1026px]:items-start'} max-sm:w-[300px]`}>
+        <div className={`text-white mt-3 w-[700px] px-3 flex flex-col h-full justify-between gap-12 max-[1026px]:gap-4 ${reversed ? 'max-[1026px]:items-end' : 'max-[1026px]:items-start'} max-sm:w-full`}>
             <span className='bg-light-gray w-10 h-10 flex justify-center items-center rounded-full'>
                 {icon}
             </span>
