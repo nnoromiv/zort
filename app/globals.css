@@ -1,8 +1,18 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
+@plugin "daisyui";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #181818;
+  --foreground: #181818;
+}
+
+@font-face {
+  font-family: Century;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/CenturyRegular.ttf") format("ttf");
 }
 
 @theme inline {
@@ -10,17 +20,40 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-primary : #6C63FF;
+  --color-secondary : #00F2FE;
+  --color-accent : #FF3366;
+  --color-dark-gray : #1A1A24;
+  --color-light-gray : #8A8A9E;
+
+  --color-black-one : #26292D;
+  --color-light-grey : #464849;
+
+  --color-light-white: #F0F4F8;
+
+  --font-*: initial;
+  --font-century: "Century", "sans-serif"
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1A1A24;
     --foreground: #ededed;
   }
+}
+
+* {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none
 }
