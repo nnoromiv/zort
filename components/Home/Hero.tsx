@@ -86,7 +86,7 @@ export function Hero() {
 
                 </div>
 
-                <div className='relative h-[100vh]'>
+                <div className='relative h-full'>
                     <motion.div
                         initial={{
                             opacity: 0,

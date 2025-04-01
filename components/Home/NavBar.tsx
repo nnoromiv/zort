@@ -26,7 +26,7 @@ export default function NavBar() {
     },
     {
       item: "Feature",
-      link: "#feature"
+      link: "#features"
     },
     {
       item: "Testimonials",
@@ -42,6 +42,10 @@ export default function NavBar() {
     },
   ];
 
+  const handleClick = () => {
+    setIsMenuOpen(false)
+  }
+
   return (
     <motion.div
       initial={{
@@ -53,13 +57,15 @@ export default function NavBar() {
       transition={{
         duration: 0.3,
       }}
-      id="home"
+      className="bg-black sticky top-0 z-50"
     >
 
       <Navbar
         className="py-3"
-        shouldHideOnScroll
+        isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
+        isBlurred
+        isBordered
       >
         <NavbarContent className="flex flex-row-reverse" justify="start">
           <NavbarMenuToggle
@@ -101,19 +107,19 @@ export default function NavBar() {
           </NavbarItem>
         </NavbarContent>
 
-        <NavbarMenu className="bg-black-gray py-5 text-white">
+        <NavbarMenu className="bg-black-gray py-16 text-white pointer-events-auto">
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                className="w-full"
-                color={
-                  index === 1 ? "primary" : "success"
-                }
-                href={item.link}
-                size="lg"
-              >
-                {item.item}
-              </Link>
+              <div onClickCapture={handleClick}>
+                <Link
+                  className="w-full text-2xl"
+                  color={"success"}
+                  href={item.link}
+                  size="lg"
+                >
+                  {item.item}
+                </Link>
+              </div>
             </NavbarMenuItem>
           ))}
         </NavbarMenu>
