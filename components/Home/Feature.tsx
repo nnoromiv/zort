@@ -52,8 +52,8 @@ const Feature: FC<IFeatureTypes> = ({ image, icon, title, description, reversed 
                     {description}
                 </p>
                 <div className='flex justify-between max-[1025px]:justify-around gap-4 max-[376px]:flex-col'>
-                    <IButton buttonText='Download App' className="w-60 max-[769px]:w-40 max-[376px]:w-full text-sm transform rounded-lg border border-primary bg-primary px-6 py-2 font-bold transition-all duration-300 hover:bg-white hover:border-white hover:!text-primary dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-900" />
-                    <IButton buttonText='Learn More' className="w-60 max-[769px]:w-40 max-[376px]:w-full text-sm transform rounded-lg border border-black bg-black px-6 py-2 font-bold transition-all duration-300 hover:bg-white hover:border-white hover:!text-black dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-900" />
+                    <IButton buttonText='Download App' className="w-60 max-[769px]:w-40 max-[376px]:w-full text-sm transform rounded-lg border border-primary bg-primary px-6 py-2 font-bold transition-all duration-300 hover:bg-white hover:border-white hover:!text-primary" />
+                    <IButton buttonText='Learn More' className="w-60 max-[769px]:w-40 max-[376px]:w-full text-sm transform rounded-lg border border-black bg-black px-6 py-2 font-bold transition-all duration-300 hover:bg-white hover:border-white hover:!text-black" />
                 </div>
             </div>
         </motion.div>

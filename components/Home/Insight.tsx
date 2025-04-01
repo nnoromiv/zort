@@ -42,11 +42,11 @@ const Insight = () => {
 
         <p className='font-bold font-century'>WHAT IS ZORT?</p>
 
-        <h1 className='px-2 py-7 font-bold text-6xl max-[1026px]:text-5xl max-[769px]:text-2xl max-sm:text-xl max-[376px]:!text-lg'>
-            The ultimate all-in-one platform for bet <br/>
+        <h1 className='px-2 py-7 font-bold text-6xl max-[1026px]:text-5xl max-[769px]:text-2xl max-sm:text-xl'>
+            The ultimate all-in-one platform for bet
             tracking and AI-powered insights</h1>
 
-        <h2 className='px-2 text-4xl max-xl:text-3xl max-[1026px]:!text-xl max-[769px]:!text-sm max-sm:!text-[9px]'>Zort brings everything you need to track and analyze your bets effortlessly.
+        <h2 className='px-2 text-4xl max-xl:text-3xl max-[1026px]:!text-xl max-[769px]:!text-sm'>Zort brings everything you need to track and analyze your bets effortlessly.
             Collaborate with friends, access AI-driven insights, and stay in control—available on
             web, iOS, and Android.</h2>
     </motion.div>
