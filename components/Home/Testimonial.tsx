@@ -1,45 +1,47 @@
 import { BG_BLUR, BG_BLUR_ } from '@/images';
-import { BentoGrid, BentoGridItem } from '@/ui/bento-grid'
-import { IconClipboardCopy, IconFileBroken, IconSignature, IconStarFilled, IconTableColumn } from '@tabler/icons-react'
+import { IconStarFilled } from '@tabler/icons-react'
 import Image from 'next/image';
 import React from 'react'
 import { motion } from 'framer-motion';
+import { AnimatedTestimonials } from '@/ui/animated-testimonial';
 
 const Testimonial = () => {
-    const Skeleton = () => (
-        <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent bg-neutral-100"></div>
-    );
 
-    const items = [
+    const testimonials = [
         {
-            title: "Wall Street Journal",
-            description: "Zort is the best bet-tracking app for 2024. Perfect for anyone looking to optimize their betting strategy and make smarter decisions—especially for group betting or partners",
-            header: <Skeleton />,
-            className: "md:col-span-2 ",
-            icon: <IconClipboardCopy
-                className="h-4 w-4 text-white"
-            />,
+            quote:
+                "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
+            name: "Sarah Chen",
+            designation: "Product Manager at TechFlow",
+            src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
         {
-            title: "ZD NET",
-            description: "I explored Zort-App, BetMinds, BetTracker, and other top competitors. My top pick? Zort-App. It’s more than just a bet tracker—it’s the all-in-one solution for managing and analyzing your bets, giving you everything you need to make smarter decisions.",
-            header: <Skeleton />,
-            className: "md:col-span-1 ",
-            icon: <IconFileBroken className="h-4 w-4 text-white" />,
+            quote:
+                "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
+            name: "Michael Rodriguez",
+            designation: "CTO at InnovateSphere",
+            src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
         {
-            title: "Business Insider",
-            description: "Zort-App is quickly becoming one of the most talked-about bet-tracking alternatives, especially as other platforms fall short. It’s the perfect tool for serious bettors looking for smarter insights and seamless tracking.",
-            header: <Skeleton />,
-            className: "md:col-span-1 ",
-            icon: <IconSignature className="h-4 w-4 text-white" />
+            quote:
+                "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
+            name: "Emily Watson",
+            designation: "Operations Director at CloudScale",
+            src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
         {
-            title: "App Store",
-            description: "Moved here from other bet trackers, and I wish I had switched years ago. Zort-App is everything they should have been. I'm far more satisfied with Zort-App than I ever was with others.",
-            header: <Skeleton />,
-            className: "md:col-span-2 ",
-            icon: <IconTableColumn className="h-4 w-4 text-white " />,
+            quote:
+                "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
+            name: "James Kim",
+            designation: "Engineering Lead at DataPro",
+            src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+            quote:
+                "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
+            name: "Lisa Thompson",
+            designation: "VP of Technology at FutureNet",
+            src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
     ];
 
@@ -56,7 +58,7 @@ const Testimonial = () => {
                 />
             </div>
 
-            <motion.div 
+            <motion.div
                 initial={{
                     opacity: 0,
                     y: 50
@@ -71,7 +73,7 @@ const Testimonial = () => {
                     once: true,
                     amount: 0.5
                 }}
-        
+
                 transition={{
                     duration: 0.3,
                     ease: "easeInOut"
@@ -85,18 +87,8 @@ const Testimonial = () => {
                 <p className='text-sm py-2'>11,000+ Reviews</p>
                 <h1 className='pb-5 font-bold text-5xl max-[1026px]:text-3xl max-sm:text-sm'>Zort: The bet tracker everyone&apos;s buzzing about</h1>
 
-                <BentoGrid className="w-full px-[50px] md:auto-rows-[20rem] max-sm:px-4">
-                    {items.map((item, i) => (
-                        <BentoGridItem
-                            key={i}
-                            title={item.title}
-                            description={item.description}
-                            // header={item.header}
-                            className={item.className}
-                            icon={item.icon}
-                        />
-                    ))}
-                </BentoGrid>
+                <AnimatedTestimonials testimonials={testimonials} />
+
             </motion.div>
 
             <div className="absolute w-1/2 bottom-0 right-0">

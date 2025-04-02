@@ -6,15 +6,20 @@ import { motion } from "motion/react";
 import IButton from '../IButton';
 import { PHONES, WAVY } from '@/images';
 import Information from '../Information';
+import { FlipWords } from '@/ui/flip-words';
 
 
 export function Hero() {
+
+    const words = ["modern", "latest", "recent", "better"];
+
     return (
         <div className="relative mx-auto flex flex-col items-center justify-center">
             <div className="py-4">
                 <div className="relative">
                     <h1 className="relative z-10 text-center text-2xl font-bold text-white md:text-4xl max-sm:text-3xl max-[376px]:!text-2xl">
-                        {"The modern way to track your bet"
+                    The <FlipWords words={words} /> 
+                        {`way to track your bet`
                             .split(" ")
                             .map((word, index) => (
                                 <motion.span
