@@ -3,48 +3,44 @@
 import React, { useState } from "react";
 import {
   Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-  Link,
-} from "@heroui/react";
-import Logo from "../Logo";
-import IButton from "../IButton";
+  NavBody,
+  NavItems,
+  MobileNav,
+  NavbarLogo,
+  NavbarButton,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "@/ui/resizable-navbar";
 import { motion } from "motion/react"
 
 
 export default function NavBar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = [
+  const navItems = [
     {
-      item: "Home",
+      name: "Home",
       link: "#home"
     },
     {
-      item: "Feature",
+      name: "Feature",
       link: "#features"
     },
     {
-      item: "Testimonials",
+      name: "Testimonials",
       link: "#testimonial"
     },
     {
-      item: "Contact",
+      name: "Contact",
       link: "#"
     },
     {
-      item: "Download App",
+      name: "Download App",
       link: "#"
     },
   ];
 
-  const handleClick = () => {
-    setIsMenuOpen(false)
-  }
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <motion.div
@@ -57,73 +53,57 @@ export default function NavBar() {
       transition={{
         duration: 0.3,
       }}
-      className="bg-black sticky top-0 z-50"
+      className="bg-transparent sticky top-0 z-50 py-3"
     >
 
-      <Navbar
-        className="py-3"
-        isMenuOpen={isMenuOpen}
-        onMenuOpenChange={setIsMenuOpen}
-        isBlurred
-        isBordered
-      >
-        <NavbarContent className="flex flex-row-reverse" justify="start">
-          <NavbarMenuToggle
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="sm:hidden text-white"
-          />
+      <div className="relative w-full">
+        <Navbar>
+          {/* Desktop Navigation */}
+          <NavBody>
+            <NavbarLogo />
+            <NavItems items={navItems} />
+            <div className="flex items-center gap-4">
+              <NavbarButton variant="dark">Book a call</NavbarButton>
+            </div>
+          </NavBody>
 
-          <NavbarBrand>
-            <Logo />
-          </NavbarBrand>
-        </NavbarContent>
+          {/* Mobile Navigation */}
+          <MobileNav>
+            <MobileNavHeader>
+              <NavbarLogo />
+              <MobileNavToggle
+                isOpen={isMobileMenuOpen}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              />
+            </MobileNavHeader>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          <NavbarItem isActive>
-            <Link className="text-gray-500" href="#home">
-              Home
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link className="text-white" href="#features">
-              Features
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link className="text-white" href="#testimonial">
-              Testimonials
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link className="text-white" href="#">
-              Contact
-            </Link>
-          </NavbarItem>
-        </NavbarContent>
-
-        <NavbarContent className="hidden sm:flex" justify="end">
-          <NavbarItem>
-            <IButton buttonText='Sign Up' className="w-60 max-[1026px]:w-40 transform rounded-lg bg-white px-6 py-2 font-medium !text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-black hover:!text-white border-1 hover:border-white" />
-          </NavbarItem>
-        </NavbarContent>
-
-        <NavbarMenu className="bg-black-gray py-16 text-white pointer-events-auto">
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <div onClickCapture={handleClick}>
-                <Link
-                  className="w-full text-2xl"
-                  color={"success"}
+            <MobileNavMenu
+              isOpen={isMobileMenuOpen}
+              onClose={() => setIsMobileMenuOpen(false)}
+            >
+              {navItems.map((item, idx) => (
+                <a
+                  key={`mobile-link-${idx}`}
                   href={item.link}
-                  size="lg"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="relative text-neutral-600 dark:text-neutral-300"
                 >
-                  {item.item}
-                </Link>
+                  <span className="block">{item.name}</span>
+                </a>
+              ))}
+              <div className="flex w-full flex-col gap-4">
+                <NavbarButton
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  variant="dark"
+                  className="w-full"
+                >
+                  Book a call
+                </NavbarButton>
               </div>
-            </NavbarMenuItem>
-          ))}
-        </NavbarMenu>
-      </Navbar>
+            </MobileNavMenu>
+          </MobileNav>
+        </Navbar>
+      </div>
 
     </motion.div>
 

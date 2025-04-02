@@ -83,9 +83,10 @@ export default function Home() {
     }
   ]
 
+
   return (
     <main className="font-century">
-      
+
       <TopBanner />
       <NavBar />
 
