@@ -11,6 +11,7 @@ import { IconCancel, IconCards, IconGraph, IconGraphOff, IconGrid4x4, IconLayers
 import Testimonial from "./Home/Testimonial";
 import BottomBanner from "./BottomBanner";
 import Footer from "./Footer";
+import { BackgroundBeamsWithCollision } from "@/ui/background-beams-with-collision";
 
 export default function Home() {
 
@@ -90,10 +91,12 @@ export default function Home() {
       <TopBanner />
       <NavBar />
 
-      <div className="h-full pb-[10%] bg-gradient-to-b from-black from-0% to-black-one to-60%">
-        <HeroBanner />
-        <Hero />
-      </div>
+      <BackgroundBeamsWithCollision>
+        <div className="h-full pb-[10%] bg-gradient-to-b from-black from-0% to-black-one to-60%">
+          <HeroBanner />
+          <Hero />
+        </div>
+      </BackgroundBeamsWithCollision>
 
       <Insight />
 
